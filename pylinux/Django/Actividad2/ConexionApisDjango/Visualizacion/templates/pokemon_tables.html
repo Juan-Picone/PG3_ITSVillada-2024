@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First 20 Pokemon</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>First 20 Pokemon</h1>
+    {% if pokemon_details %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Types</th>
+                    <th>Abilities</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pokemon in pokemon_details %}
+                    <tr>
+                        <td>{{ pokemon.name }}</td>
+                        <td>{{ pokemon.types|join:", " }}</td>
+                        <td>{{ pokemon.abilities|join:", " }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
